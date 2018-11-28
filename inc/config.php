@@ -1,3 +1,0 @@
-<?php
-	$laboratoryid=1;
-?>
