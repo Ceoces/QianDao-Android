@@ -2,10 +2,11 @@
 	include_once('mysql.class.php');
 	function Error($i){
 		if($i==1){ //不处于登陆状态跳转到登陆页面
-			header('location:login.php');
+			header("locaton:login.php?id=".$_GET['id']);
 		}
 	}
 	session_start();
+	if(!isset($_SESSION['laboratoryid']))$_SESSION['laboratoryid']=$_GET['id'];
 	$isLogin=0;
 	if(!isset($mustlogin))$mustlogin=1;
 	if(isset($_SESSION['id'])&&isset($_SESSION['pwd'])&&$_SESSION['id']!=""&&$_SESSION['pwd']!=""){
