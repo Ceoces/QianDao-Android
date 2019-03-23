@@ -1,16 +1,17 @@
 <?php
+
+
   	include_once('inc/mysql.class.php');
   	if(is_file('360webscan.php')){
 		require_once('360webscan.php');
 	}
-	
 	  $db=new Mysql();
 	  if($db->connect($dbhost,$dbuser,$dbpassword,$dbname))
 	  {
 	    echo "数据库连接失败";
 	    die;
 	  }
-	  $mustlogin=0;
+		$mustlogin=0;
 		include_once('inc/logincheck.php');
 	  if(isset($_GET['id'])){
 	  	$laboratoryid=mysql_escape_string($_GET['id']);
@@ -23,7 +24,7 @@
 	  	die;
 	  }
 	  if(isset($isLogin)&&$isLogin==1){
-	  	$sql="select * from v_student where id=".$_SESSION['id']." and laboratoryid=".$laboratoryid;
+	  	$sql="select * from v_student where id=".$_SESSION['stuid']." and laboratoryid=".$laboratoryid;
 	  	$stuinfo=$db->findAll($sql);
 	  }
 ?>
@@ -34,7 +35,6 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 		<title>开放实验室签报系统</title>
 		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		 <!-- Custom Theme files -->
 		<link href="css/style.css" rel='stylesheet' type='text/css' />
 		<link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
@@ -97,8 +97,8 @@
 			        		 ?>>
 			          			<img src=<?php
 			        			if($isLogin==1){
-			        				if(is_file( "./stupic/".$_SESSION['id'].".jpg")){
-			        					echo "'./stupic/".$_SESSION['id'].".jpg'"; 
+			        				if(is_file( "./stupic/".$_SESSION['stuid'].".jpg")){
+			        					echo "'./stupic/".$_SESSION['stuid'].".jpg'"; 
 			        				} else {
 			        					echo "'./images/user.png'";
 			        				}
@@ -205,7 +205,7 @@
 </div>
 		<!-- testmonials -->
 
- <div id="price" class="pricing-plans">
+ <div id="object" class="pricing-plans">
 					 <div class="container">
 					 	<div class="price-head">
 					 		<h3>项目简介</h3>

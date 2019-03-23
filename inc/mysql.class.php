@@ -4,10 +4,10 @@
  * @author 
  * @version 1.0
  */
-	$dbname="data2";
-	$dbuser="root";
-	$dbpassword="root";
-	$dbhost="localhost";
+	$dbname="qdm114391558_db";
+	$dbuser="qdm114391558";
+	$dbpassword="Stuq1w2e3r4t5";
+	$dbhost="qdm114391558.my3w.com";
 class Mysql {	
 
 	private $debug = false;		//true 打开数据库调试模式 false关闭数据库调试模式

@@ -3,16 +3,12 @@
 	if(is_file('inc/360webscan.php')){
 		require_once('inc/360webscan.php');
 	}
-  if(isset($_SESSION['id'])){
-  	include_once("inc/logincheck.php");
-  	$laboratoryid=$_GET['id'];
-  } else {
-  	$url = 'location:login.php?id='.$_GET['id'];
-  	header($url);
-  }
+  
+  include_once("inc/logincheck.php");
 
 	$err=0;
-	$id=$_SESSION['id'];
+	$laboratoryid=$_SESSION['laboratoryid'];
+	$id=$_SESSION['stuid'];
 	$sql="select * from t_signtable where stuid='".$id."' and laboratoryid=".$laboratoryid." and static=1 and to_days(intime) = to_days(now()) order by intime desc";
 	$row=$db->findAll($sql);
 	//判断是否进入实验室

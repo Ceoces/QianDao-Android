@@ -5,8 +5,8 @@
 	}
 
 	session_start();
- 	$_SESSION['id']='';
- 	$_SESSION['pwd']='';
+ 	$_SESSION['stuid']='';
+ 	$_SESSION['stupwd']='';
 
  	if(isset($_GET['id'])){
  		$laboratoryid=mysql_escape_string($_GET['id']);
@@ -33,8 +33,9 @@
 			}
 			if($err==0){
 				$_SESSION['laboratoryid']=$laboratoryid;
-				$_SESSION['id']=$_POST['id'];
-				$_SESSION['pwd']=sha1($pwd);
+				$_SESSION['stuid']=$_POST['id'];
+				$_SESSION['stupwd']=sha1($pwd);
+				//echo $_SESSION['stupwd'];
 				header('location:index.php?id='.$laboratoryid);
 			}
 		}
