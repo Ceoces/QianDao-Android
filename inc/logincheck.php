@@ -5,7 +5,7 @@
 	include_once('mysql.class.php');
 	function Error($i){
 		if($i==1){ //不处于登陆状态跳转到登陆页面
-			header("locaton:login.php?id=".$_GET['id']);
+			header("location:login.php?id=".$_GET['id']);
 		}
 	}
 	session_start();
