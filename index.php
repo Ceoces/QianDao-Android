@@ -106,7 +106,7 @@
 			        				echo "'./images/user.png'";
 			        		 	}
 			        		 ?> style="border:1px; border-radius: 100%;width: 80px;height: 80px;" />
-			          			<h3 style="color:#FFFAFA"><?php if($isLogin==1) echo $stuinfo[0]['stuname']; else echo "未登录"; ?></h3>
+			          			<h3 style="color:#FFFAFA"><?php if($isLogin==1) echo $stuinfo[0]['stuname']; else echo "点击登录"; ?></h3>
 			          		</a>
 			          		<a class="dow-btn" href="sign.php?id=<?php echo $laboratoryid; ?>">签到</a>
 			          	</center>
